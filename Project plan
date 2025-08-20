@@ -1,0 +1,152 @@
+Project plan : 
+
+
+Using Tools : 
+
+Backend (Microservices): Java + Spring Boot
+
+Frontend: React.js
+
+Database: MongoDB (hosted, e.g., MongoDB Atlas)
+
+Auth: JWT (JSON Web Token) for user authentication
+
+API Gateway (Optional for microservice routing): Spring Cloud Gateway
+
+Service Discovery (Optional): Netflix Eureka
+
+Docker: For containerization (optional but ideal for microservices)
+
+Postman: For API testing
+
+
+---------
+
+
+Suggested Microservices
+1. User Service
+Signup, Login
+
+Profile update
+
+JWT-based authentication
+
+2. Expense Service
+Add/edit/delete expenses
+
+Categorize expenses (food, rent, transport, etc.)
+
+Link expenses to user
+
+3. Income Service
+Add/edit/delete income sources
+
+View total income for a month
+
+4. Budget Service
+Set monthly budget
+
+Notify if overspending
+
+Analyze budget vs actual
+
+5. Report Service (Optional)
+Monthly, weekly reports
+
+Spending trends using charts (React + Chart.js or Recharts)
+
+Export to PDF or CSV
+
+MongoDB Collections (Design Sample)
+Each microservice can have its own DB or schema:
+ex :
+// Expense Document
+{
+  "_id": ObjectId,
+  "userId": "xyz123",
+  "amount": 2500,
+  "category": "Groceries",
+  "date": "2025-07-01",
+  "description": "Monthly groceries at Reliance",
+  "paymentMode": "UPI"
+}
+
+
+🖥 UI Features (React)
+Dashboard with charts
+
+Add/Update/Delete income & expenses
+
+Budget progress bar
+
+Secure login/signup pages
+
+Mobile responsive
+
+📈 Optional Advanced Features
+Email alerts for budget limits
+
+Multi-currency support
+
+OCR-based bill scanning
+
+PWA for offline access
+
+--------------------
+
+
+Development Plan
+1. Set up each service independently with Spring Boot
+
+2. Create common config for MongoDB access using Spring Data MongoDB
+
+3. Implement REST APIs and test via Postman
+
+4. Secure APIs with JWT
+
+5. Build React frontend and connect to backend
+
+6. Host MongoDB Atlas, backend (Render/Heroku), and frontend (Vercel/Netlify)
+
+
+
+
+
+--------------------
+
+
+
+
+
+[Frontend Request]
+   |
+[Controller]
+   - Sets headers
+   - Passes full request to reportService
+   |
+[ReportService]
+   - Dispatches to the proper ReportGenerator
+   |
+[ExpenseReportGenerator]
+   - Reads input from `request.parameters`
+   - Queries DB using mapper/repository
+   - Writes report using Apache POI or BufferedWriter
+   - Returns byte[]
+
+
+
+-----------
+
+
+
+MangoDB details : 
+
+userName : aswinkumarvijay1206
+password : bUKaX4qYjR2CMMFO
+
+IP address : 116.72.117.60/32          ----     0.0.0.0/0
+
+
+mongodb+srv://aswinkumarvijay1206:bUKaX4qYjR2CMMFO@smartfincluster.gy6g1pq.mongodb.net/?retryWrites=true&w=majority&appName=SmartFinCluster
+
+

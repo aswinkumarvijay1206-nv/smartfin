@@ -1,0 +1,13 @@
+<queries>
+    <query name="expenses">
+        <![CDATA[
+        {
+            "email": ":email",
+            "date": {
+                "$gte": ":fromDate",
+                "$lte": ":toDate"
+            }
+        }
+        ]]>
+    </query>
+</queries>
